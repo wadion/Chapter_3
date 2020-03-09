@@ -18,17 +18,22 @@ search "gut_pal_spot.txt" for any BLAST hits by searching the document (Ctrl+F, 
 
 #Code for BLAST of D.palustris genome against D.guttifera Stripe CRE
 blastn -db Stripe_CRE.fasta -query pal_asm.contigs.fasta -out gut_pal_stripe.txt
-search "gut_pal_stripe.txt" for any BLAST hits by searching the document (Ctrl+F, query = "Score") - 8 hits
+search "gut_pal_stripe.txt" for any BLAST hits by searching the document (Ctrl+F, query = "Score") - 8 unique contig hits
 
 #Code for BLAST of D.palustris genome against D.guttifera Wing-body CRE
 blastn -db WB_CRE.fasta -query pal_asm.contigs.fasta -out gut_pal_WB.txt
-search "gut_pal_WB.txt" for any BLAST hits by searching the document (Ctrl+F, query = "Score") -  2 hits
+search "gut_pal_WB.txt" for any BLAST hits by searching the document (Ctrl+F, query = "Score") -  1 unique contig hit
 
 ##BLAST the D.guttifera Spot, Stripe, and Wing-body cis-regulatory elements (CREs) against the genome of D.subpalustris
 #Code for BLAST of D.subpalustris genome against D.guttifera Spot CRE
 blastn -db Spot_CRE.fasta -query sub_asm.contigs.fasta -out gut_sub_spot.txt
-search "gut_sub_spot.txt" for any BLAST hits by searching the document (Ctrl+F, query = "Score") - 
+search "gut_sub_spot.txt" for any BLAST hits by searching the document (Ctrl+F, query = "Score") - No hits
 
+#Code for BLAST of D.subpalustris genome against D.guttifera Stripe CRE
+blastn -db Stripe_CRE.fasta -query sub_asm.contigs.fasta -out gut_sub_stripe.txt
+search "gut_sub_stripe.txt" for any BLAST hits by searching the document (Ctrl+F, query = "Score") - 14 unique contig hits
 
-
+#Code for BLAST of D.subpalustris genome against D.guttifera WB CRE
+blastn -db WB_CRE.fasta -query sub_asm.contigs.fasta -out gut_sub_WB.txt
+search "gut_sub_WB.txt" for any BLAST hits by searching the document (Ctrl+F, query = "Score") -  unique contig hit
 
