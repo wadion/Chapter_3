@@ -54,10 +54,15 @@ search "mel_gut_y.txt" for any BLAST hits by searching the document (Ctrl+F, que
 
 ##No results, so I perform a BLAST of the D.melanogaster yellow with the local BLAST terminal in the lab. Scaffold 293.1 from GutG was a positive hit
 
-##Next we BLAST D.guttifera yellow against the D.palustris and D.subpalustris genomes to look for any overlap with the D.guttifera CREs
+##Next we BLAST D.guttifera yellow against the D.palustris genomes to look for any overlap with the D.guttifera CREs
 #Make the D.guttifera y databases for BLAST
 makeblastdb -in gutG_y.fasta -dbtype nucl -title gutG_y
-#BLAST D.palustris genome against mel_y
+#BLAST D.palustris genome against gutG_y
 blastn -db gutG_y.fasta -query pal_asm.contigs.fasta -out gutG_pal_y.txt
-search "gutG_pal_y.txt" for any overla by searching the document (Ctrl+F, query = "tigXXX") - tig00001607 (hit for WB) looks promising
+#search "gutG_pal_y.txt" for any overlap by searching the document (Ctrl+F, query = "tigXXX") - tig00001607 (hit for WB) looks promising
+#set up alignment in Gene Palette
+
+##Finally, we BLAST D.guttifera yellow against the D.subpalustris genomes to look for any overlap with the D.guttifera CREs
+blastn -db gutG_y.fasta -query sub_asm.contigs.fasta -out gutG_sub_y.txt
+#search "gutG_sub_y.txt" for any overlap by searching the document (Ctrl+F, query = "tigXXX") - tig00000324 (hit for Stripe) looks good
 #set up alignment in Gene Palette
