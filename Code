@@ -7,7 +7,7 @@ Sharable link: https://drive.google.com/open?id=1bKftTwNYO9m4po5E2Ew9HVYrTDYUv5c
 Sharable link: https://drive.google.com/open?id=1Rd0vzO0AJqyEV-U6biv4_8O-r8R-Ljod
 
 ##BLAST the D.guttifera Spot, Stripe, and Wing-body cis-regulatory elements (CREs) against the genome of D.palustris
-#Make the databases for BLAST
+#Make the CRE databases for BLAST
 makeblastdb -in Spot_CRE.fasta -dbtype nucl -title gut_spot
 makeblastdb -in Stripe_CRE.fasta -dbtype nucl -title gut_spot
 makeblastdb -in WB_CRE.fasta -dbtype nucl -title gut_spot
@@ -37,3 +37,17 @@ search "gut_sub_stripe.txt" for any BLAST hits by searching the document (Ctrl+F
 blastn -db WB_CRE.fasta -query sub_asm.contigs.fasta -out gut_sub_WB.txt
 search "gut_sub_WB.txt" for any BLAST hits by searching the document (Ctrl+F, query = "Score") - No hits
 
+##Next we BLAST D.melanogaster yellow against the D.palustris and D.subpalustris genomes to look for any overlap with the D.guttifera CREs
+#Make the y databases for BLAST
+makeblastdb -in mel_y.fasta -dbtype nucl -title mel_y
+#BLAST D.palustris genome against mel_y
+blastn -db mel_y.fasta -query pal_asm.contigs.fasta -out mel_pal_y.txt
+search "mel_pal_y.txt" for any BLAST hits by searching the document (Ctrl+F, query = "Score") - No hits
+#BLAST D.subpalustris genome against mel_y
+blastn -db mel_y.fasta -query sub_asm.contigs.fasta -out mel_sub_y.txt
+search "mel_sub_y.txt" for any BLAST hits by searching the document (Ctrl+F, query = "Score") - No hits
+
+##No results, so we BLAST D.melanogaster yellow against the D.guttifera genome
+#BLAST D.guttifera genome against mel_y
+blastn -db mel_y.fasta -query GutG.final.scaffolds.fasta -out mel_gut_y.txt
+search "mel_gut_y.txt" for any BLAST hits by searching the document (Ctrl+F, query = "Score") - No hits
