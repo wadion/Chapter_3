@@ -35,5 +35,5 @@ search "gut_sub_stripe.txt" for any BLAST hits by searching the document (Ctrl+F
 
 #Code for BLAST of D.subpalustris genome against D.guttifera WB CRE
 blastn -db WB_CRE.fasta -query sub_asm.contigs.fasta -out gut_sub_WB.txt
-search "gut_sub_WB.txt" for any BLAST hits by searching the document (Ctrl+F, query = "Score") -  unique contig hit
+search "gut_sub_WB.txt" for any BLAST hits by searching the document (Ctrl+F, query = "Score") - No hits
 
