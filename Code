@@ -6,12 +6,29 @@ Sharable link: https://drive.google.com/open?id=1bKftTwNYO9m4po5E2Ew9HVYrTDYUv5c
 #D.subpalustris genome
 Sharable link: https://drive.google.com/open?id=1Rd0vzO0AJqyEV-U6biv4_8O-r8R-Ljod
 
-##BLAST the D.guttifera Spot, Stripe, and Wing-body cis-regulatory elements (CREs) against the genomes D.palustris and D.subpalustris
+##BLAST the D.guttifera Spot, Stripe, and Wing-body cis-regulatory elements (CREs) against the genome of D.palustris
 #Make the databases for BLAST
 makeblastdb -in Spot_CRE.fasta -dbtype nucl -title gut_spot
 makeblastdb -in Stripe_CRE.fasta -dbtype nucl -title gut_spot
 makeblastdb -in WB_CRE.fasta -dbtype nucl -title gut_spot
+
 #Code for BLAST of D.palustris genome against D.guttifera Spot CRE
 blastn -db Spot_CRE.fasta -query pal_asm.contigs.fasta -out gut_pal_spot.txt
 search "gut_pal_spot.txt" for any BLAST hits by searching the document (Ctrl+F, query = "Score") - No hits
+
 #Code for BLAST of D.palustris genome against D.guttifera Stripe CRE
+blastn -db Stripe_CRE.fasta -query pal_asm.contigs.fasta -out gut_pal_stripe.txt
+search "gut_pal_stripe.txt" for any BLAST hits by searching the document (Ctrl+F, query = "Score") - 8 hits
+
+#Code for BLAST of D.palustris genome against D.guttifera Wing-body CRE
+blastn -db WB_CRE.fasta -query pal_asm.contigs.fasta -out gut_pal_WB.txt
+search "gut_pal_WB.txt" for any BLAST hits by searching the document (Ctrl+F, query = "Score") -  2 hits
+
+##BLAST the D.guttifera Spot, Stripe, and Wing-body cis-regulatory elements (CREs) against the genome of D.subpalustris
+#Code for BLAST of D.subpalustris genome against D.guttifera Spot CRE
+blastn -db Spot_CRE.fasta -query sub_asm.contigs.fasta -out gut_sub_spot.txt
+search "gut_sub_spot.txt" for any BLAST hits by searching the document (Ctrl+F, query = "Score") - 
+
+
+
+
