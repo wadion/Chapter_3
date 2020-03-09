@@ -38,7 +38,7 @@ blastn -db WB_CRE.fasta -query sub_asm.contigs.fasta -out gut_sub_WB.txt
 search "gut_sub_WB.txt" for any BLAST hits by searching the document (Ctrl+F, query = "Score") - No hits
 
 ##Next we BLAST D.melanogaster yellow against the D.palustris and D.subpalustris genomes to look for any overlap with the D.guttifera CREs
-#Make the y databases for BLAST
+#Make the D.melanogaster y databases for BLAST
 makeblastdb -in mel_y.fasta -dbtype nucl -title mel_y
 #BLAST D.palustris genome against mel_y
 blastn -db mel_y.fasta -query pal_asm.contigs.fasta -out mel_pal_y.txt
@@ -52,5 +52,12 @@ search "mel_sub_y.txt" for any BLAST hits by searching the document (Ctrl+F, que
 blastn -db mel_y.fasta -query GutG.final.scaffolds.fasta -out mel_gut_y.txt
 search "mel_gut_y.txt" for any BLAST hits by searching the document (Ctrl+F, query = "Score") - No hits
 
-##No results, so I perform a BLAST of the D.melanogaster yellow with the local BLAST terminal in the lab
+##No results, so I perform a BLAST of the D.melanogaster yellow with the local BLAST terminal in the lab. Scaffold 293.1 from GutG was a positive hit
 
+##Next we BLAST D.guttifera yellow against the D.palustris and D.subpalustris genomes to look for any overlap with the D.guttifera CREs
+#Make the D.guttifera y databases for BLAST
+makeblastdb -in gutG_y.fasta -dbtype nucl -title gutG_y
+#BLAST D.palustris genome against mel_y
+blastn -db gutG_y.fasta -query pal_asm.contigs.fasta -out gutG_pal_y.txt
+search "gutG_pal_y.txt" for any overla by searching the document (Ctrl+F, query = "tigXXX") - tig00001607 (hit for WB) looks promising
+#set up alignment in Gene Palette
