@@ -51,3 +51,6 @@ search "mel_sub_y.txt" for any BLAST hits by searching the document (Ctrl+F, que
 #BLAST D.guttifera genome against mel_y
 blastn -db mel_y.fasta -query GutG.final.scaffolds.fasta -out mel_gut_y.txt
 search "mel_gut_y.txt" for any BLAST hits by searching the document (Ctrl+F, query = "Score") - No hits
+
+##No results, so I perform a BLAST of the D.melanogaster yellow with the local BLAST terminal in the lab
+
